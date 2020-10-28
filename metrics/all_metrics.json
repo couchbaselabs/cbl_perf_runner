@@ -1,0 +1,130 @@
+[
+    {
+        "id": "names_sql_query_state_encrypted",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted"
+    },
+    {
+        "id": "names_sql_query_state",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"]"
+    },
+    {
+        "id": "names_sql_query_state_indexed_encrypted",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted, indexed"
+    },
+    {
+        "id": "names_sql_query_state_indexed",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], indexed"
+    },
+    {
+        "id": "names_sql_index_creation",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "ms create value index on [[\".contact.address.state\"]]"
+    },
+    {
+        "id": "names_sql_index_creation_encrypted",
+        "category": "core",
+        "component": "couchbaselite",
+        "cluster": "lithium_linux",
+        "subCategory": "Linux",
+        "title": "ms create value index on [[\".contact.address.state\"]], encrypted"
+    },
+    {
+        "id": "tunes_import_json",
+        "title": "docs / sec iTunes Library Import (11259 docs)",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "tunes_import_json_encrypted",
+        "title": "docs / sec iTunes Library Import (11259 docs), encrypted",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "median_tunes_read_random_docs_encrypted",
+        "title": "Median us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "mean_tunes_read_random_docs_encrypted",
+        "title": "Average us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "slow_tunes_read_random_docs_encrypted",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "fast_tunes_read_random_docs_encrypted",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "median_tunes_read_random_docs",
+        "title": "Median us / doc Read 100000 random documents (iTunes)",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "mean_tunes_read_random_docs",
+        "title": "Average us / doc Read 100000 random documents (iTunes)",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "slow_tunes_read_random_docs",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes)",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    },
+    {
+        "id": "fast_tunes_read_random_docs",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes)",
+        "component": "couchbaselite",
+        "category": "core",
+        "subCategory": "Linux",
+        "cluster": "lithium_linux"
+    }
+]
