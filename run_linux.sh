@@ -16,7 +16,7 @@ python3.7 --version > /dev/null
 NO_37=$?
 set -e
 
-if [ $NO_37 ]; then
+if [ $NO_37 != 0 ]; then
     PYTHON=python3
 else
     PYTHON=python3.7
