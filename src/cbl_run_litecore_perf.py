@@ -31,6 +31,9 @@ for child in result['builds']:
 
     bld_num = next(p['value'] for p in parameters if p['name'] == 'BLD_NUM')
     print('Found latest stable build as {}-{}'.format(release_version, bld_num))
+    with open('version.txt', 'w') as fout:
+        fout.write('{}-{}'.format(release_version, bld_num))
+    
     break
 
 # Internal server, this script must be run inside the company network
@@ -44,7 +47,7 @@ with open('cbl_src/src.tar.gz', 'wb') as fout:
         fout.write(chunk)
         print('{} of {} downloaded ({}%)...'.format(fout.tell(), download_size, round(fout.tell() / download_size * 100, 2)), end='\r')
 
-print("Download complete, extracting...")
+print("\nDownload complete, extracting...")
 with tarfile.open('cbl_src/src.tar.gz') as fin:
     fin.extractall(path="cbl_src")
 

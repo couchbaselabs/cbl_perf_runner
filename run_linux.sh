@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 pushd `dirname "$0"`
 
@@ -12,13 +12,9 @@ if [ -z $CB_SERVER ]; then
     exit 1
 fi
 
-if [ -z $CB_VERSION ]; then
-    echo "Required environment variable CB_VERSION not set!"
-    exit 1
-fi
-
 python3.7 --version > /dev/null
 NO_37=$?
+set -e
 
 if [ $NO_37 ]; then
     PYTHON=python3
@@ -31,4 +27,5 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 src/cbl_run_litecore_perf.py
-src/cbl_upload.py showfast --username cbl_perf --password $CB_PASSWORD --server $CB_SERVER --build $CB_VERSION
+cb_version=`cat version.txt`
+src/cbl_upload.py showfast --username cbl_perf --password $CB_PASSWORD --server $CB_SERVER --build $cb_version
