@@ -150,8 +150,10 @@ download_file_if_needed('C/tests/data/en-wikipedia-articles-1000-1.json.gz', "ht
 if sys.platform == "win32":
     os.chdir("MinSizeRel")
     subprocess.run('C4Tests.exe -r list "[Perf]"', shell=True)
+    os.chdir("../../../..")
 else:   
     subprocess.run('./C4Tests -r list "[Perf]"', shell=True)
+    os.chdir("../../..")
 
-with open("../version.txt", "w") as fout:
-    fout.write(get_cbl_build(Path('../cbl').resolve()))
+with open("version.txt", "w") as fout:
+    fout.write(get_cbl_build(Path('cbl').resolve()))

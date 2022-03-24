@@ -6,6 +6,7 @@ from getpass import getpass
 from datetime import datetime
 from couchbase.cluster import Cluster, ClusterOptions
 from couchbase_core.cluster import PasswordAuthenticator
+from alive_progress import alive_it
 
 import json
 import os
@@ -30,7 +31,7 @@ def _get_metrics():
 
 def _update_benchmarks(directory: str):
     all_benchmarks = []
-    for filename in Path(args.directory).glob("*.json"):
+    for filename in Path(directory).glob("*.json"):
         with open(filename, "r") as fin:
             decoded = json.load(fin)
 
@@ -75,12 +76,15 @@ if __name__ == "__main__":
     cluster = Cluster("couchbase://{}:8091".format(args.server), ClusterOptions(
         PasswordAuthenticator(args.username, args.password)))
 
+    print("Reading metrics...")
     all_metrics = _get_metrics()
     seen_metrics = set()
+    print("Generating showfast data...")
     updated_benchmarks = _update_benchmarks(args.directory)
     metrics_bucket = cluster.bucket("metrics")
     benchmarks_bucket = cluster.bucket("benchmarks")
-    for mark in updated_benchmarks:
+    print("Uploading...")
+    for mark in alive_it(updated_benchmarks):
         benchmarks_bucket.upsert(str(uuid.uuid4()), mark)
         if mark["metric"] not in seen_metrics:
             seen_metrics.add(mark["metric"])
