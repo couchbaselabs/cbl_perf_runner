@@ -1,0 +1,130 @@
+[
+    {
+        "id": "names_sql_query_state_encrypted_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted"
+    },
+    {
+        "id": "names_sql_query_state_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"]"
+    },
+    {
+        "id": "names_sql_query_state_indexed_encrypted_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted, indexed"
+    },
+    {
+        "id": "names_sql_query_state_indexed_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], indexed"
+    },
+    {
+        "id": "names_sql_index_creation_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "ms create value index on [[\".contact.address.state\"]]"
+    },
+    {
+        "id": "names_sql_index_creation_encrypted_helium_windows",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_windows",
+        "subCategory": "Windows",
+        "title": "ms create value index on [[\".contact.address.state\"]], encrypted"
+    },
+    {
+        "id": "tunes_import_json_helium_windows",
+        "title": "docs / sec iTunes Library Import (11259 docs)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "tunes_import_json_encrypted_helium_windows",
+        "title": "docs / sec iTunes Library Import (11259 docs), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "median_tunes_read_random_docs_encrypted_helium_windows",
+        "title": "Median us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "mean_tunes_read_random_docs_encrypted_helium_windows",
+        "title": "Average us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "slow_tunes_read_random_docs_encrypted_helium_windows",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "fast_tunes_read_random_docs_encrypted_helium_windows",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "median_tunes_read_random_docs_helium_windows",
+        "title": "Median us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "mean_tunes_read_random_docs_helium_windows",
+        "title": "Average us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "slow_tunes_read_random_docs_helium_windows",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    },
+    {
+        "id": "fast_tunes_read_random_docs_helium_windows",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "Windows",
+        "cluster": "helium_windows"
+    }
+]

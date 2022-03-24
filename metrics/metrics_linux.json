@@ -1,130 +1,130 @@
 [
     {
-        "id": "names_sql_query_state_encrypted",
+        "id": "names_sql_query_state_encrypted_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted"
     },
     {
-        "id": "names_sql_query_state",
+        "id": "names_sql_query_state_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"]"
     },
     {
-        "id": "names_sql_query_state_indexed_encrypted",
+        "id": "names_sql_query_state_indexed_encrypted_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted, indexed"
     },
     {
-        "id": "names_sql_query_state_indexed",
+        "id": "names_sql_query_state_indexed_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], indexed"
     },
     {
-        "id": "names_sql_index_creation",
+        "id": "names_sql_index_creation_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "ms create value index on [[\".contact.address.state\"]]"
     },
     {
-        "id": "names_sql_index_creation_encrypted",
+        "id": "names_sql_index_creation_encrypted_helium_linux",
         "category": "core",
-        "component": "couchbaselite",
-        "cluster": "lithium_linux",
+        "component": "lite",
+        "cluster": "helium_linux",
         "subCategory": "Linux",
         "title": "ms create value index on [[\".contact.address.state\"]], encrypted"
     },
     {
-        "id": "tunes_import_json",
+        "id": "tunes_import_json_helium_linux",
         "title": "docs / sec iTunes Library Import (11259 docs)",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "tunes_import_json_encrypted",
+        "id": "tunes_import_json_encrypted_helium_linux",
         "title": "docs / sec iTunes Library Import (11259 docs), encrypted",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "median_tunes_read_random_docs_encrypted",
+        "id": "median_tunes_read_random_docs_encrypted_helium_linux",
         "title": "Median us / doc Read 100000 random documents (iTunes), encrypted",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "mean_tunes_read_random_docs_encrypted",
+        "id": "mean_tunes_read_random_docs_encrypted_helium_linux",
         "title": "Average us / doc Read 100000 random documents (iTunes), encrypted",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "slow_tunes_read_random_docs_encrypted",
+        "id": "slow_tunes_read_random_docs_encrypted_helium_linux",
         "title": "Slowest us / doc Read 100000 random documents (iTunes), encrypted",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "fast_tunes_read_random_docs_encrypted",
+        "id": "fast_tunes_read_random_docs_encrypted_helium_linux",
         "title": "Fastest us / doc Read 100000 random documents (iTunes), encrypted",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "median_tunes_read_random_docs",
+        "id": "median_tunes_read_random_docs_helium_linux",
         "title": "Median us / doc Read 100000 random documents (iTunes)",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "mean_tunes_read_random_docs",
+        "id": "mean_tunes_read_random_docs_helium_linux",
         "title": "Average us / doc Read 100000 random documents (iTunes)",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "slow_tunes_read_random_docs",
+        "id": "slow_tunes_read_random_docs_helium_linux",
         "title": "Slowest us / doc Read 100000 random documents (iTunes)",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     },
     {
-        "id": "fast_tunes_read_random_docs",
+        "id": "fast_tunes_read_random_docs_helium_linux",
         "title": "Fastest us / doc Read 100000 random documents (iTunes)",
-        "component": "couchbaselite",
+        "component": "lite",
         "category": "core",
         "subCategory": "Linux",
-        "cluster": "lithium_linux"
+        "cluster": "helium_linux"
     }
 ]

@@ -1,0 +1,130 @@
+[
+    {
+        "id": "names_sql_query_state_encrypted_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted"
+    },
+    {
+        "id": "names_sql_query_state_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"]"
+    },
+    {
+        "id": "names_sql_query_state_indexed_encrypted_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], encrypted, indexed"
+    },
+    {
+        "id": "names_sql_query_state_indexed_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "docs / sec query [\"=\", [\".contact.address.state\"], \"WA\"], indexed"
+    },
+    {
+        "id": "names_sql_index_creation_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "ms create value index on [[\".contact.address.state\"]]"
+    },
+    {
+        "id": "names_sql_index_creation_encrypted_helium_macos",
+        "category": "core",
+        "component": "lite",
+        "cluster": "helium_macos",
+        "subCategory": "macOS",
+        "title": "ms create value index on [[\".contact.address.state\"]], encrypted"
+    },
+    {
+        "id": "tunes_import_json_helium_macos",
+        "title": "docs / sec iTunes Library Import (11259 docs)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "tunes_import_json_encrypted_helium_macos",
+        "title": "docs / sec iTunes Library Import (11259 docs), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "median_tunes_read_random_docs_encrypted_helium_macos",
+        "title": "Median us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "mean_tunes_read_random_docs_encrypted_helium_macos",
+        "title": "Average us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "slow_tunes_read_random_docs_encrypted_helium_macos",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "fast_tunes_read_random_docs_encrypted_helium_macos",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes), encrypted",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "median_tunes_read_random_docs_helium_macos",
+        "title": "Median us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "mean_tunes_read_random_docs_helium_macos",
+        "title": "Average us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "slow_tunes_read_random_docs_helium_macos",
+        "title": "Slowest us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    },
+    {
+        "id": "fast_tunes_read_random_docs_helium_macos",
+        "title": "Fastest us / doc Read 100000 random documents (iTunes)",
+        "component": "lite",
+        "category": "core",
+        "subCategory": "macOS",
+        "cluster": "helium_macos"
+    }
+]

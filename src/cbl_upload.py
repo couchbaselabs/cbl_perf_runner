@@ -10,13 +10,20 @@ from couchbase_core.cluster import PasswordAuthenticator
 import json
 import os
 import uuid
+import sys
 
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
 def _get_metrics():
-    metrics_path = Path(SCRIPT_DIR) / ".." / "metrics" / "all_metrics.json"
+    if sys.platform == "win32":
+        metrics_path = Path(SCRIPT_DIR) / ".." / "metrics" / "metrics_windows.json"
+    elif sys.platform == "darwin":
+        metrics_path = Path(SCRIPT_DIR) / ".." / "metrics" / "metrics_macos.json"
+    else:
+        metrics_path = Path(SCRIPT_DIR) / ".." / "metrics" / "metrics_linux.json"
+
     with open(metrics_path) as fin:
         return json.load(fin)
 

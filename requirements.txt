@@ -1,3 +1,4 @@
-requests
-packaging
 couchbase
+GitPython
+requests
+alive-progress

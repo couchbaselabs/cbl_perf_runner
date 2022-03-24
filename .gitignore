@@ -131,3 +131,5 @@ dmypy.json
 cbl_src/
 build/
 version.txt
+downloaded/
+showfast/
