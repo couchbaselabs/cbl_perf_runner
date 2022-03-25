@@ -2,16 +2,14 @@
 
 from argparse import ArgumentParser
 from pathlib import Path
-from getpass import getpass
 from datetime import datetime
-from couchbase.cluster import Cluster, ClusterOptions
-from couchbase_core.cluster import PasswordAuthenticator
 from alive_progress import alive_it
 
 import json
 import os
 import uuid
 import sys
+import requests
 
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -47,6 +45,8 @@ def _update_benchmarks(directory: str):
             if args.build_url is not None:
                 entry["buildURL"] = args.build_url
 
+            entry["id"] = uuid.uuid4().hex
+
             all_benchmarks.append(entry)
 
     return all_benchmarks
@@ -59,35 +59,25 @@ if __name__ == "__main__":
                         help="The directory containing the JSON output of the performance tests")
     parser.add_argument("--server", action="store", type=str, default="localhost",
                         help="The server to upload the data to (default %(default)s)")
-    parser.add_argument("--username", action="store", type=str, default="Administrator",
-                        help="The username to use to authenticate with the server (default %(default)s)")
-    parser.add_argument("--password", action="store", type=str,
-                        help="The password to use to authenticate with the server (will prompt if omitted)")
     parser.add_argument("--build-url", action="store", type=str,
                         help="The URL of the Jenkins job to record in the results")
     parser.add_argument("--build", action="store", type=str,
                         help="The build version to record in the results")
     args = parser.parse_args()
 
-    if args.password is None:
-        args.password = getpass("Enter server password: ")
-
-    print("Connecting to couchbase://{}:8091".format(args.server))
-    cluster = Cluster("couchbase://{}:8091".format(args.server), ClusterOptions(
-        PasswordAuthenticator(args.username, args.password)))
-
     print("Reading metrics...")
     all_metrics = _get_metrics()
     seen_metrics = set()
     print("Generating showfast data...")
     updated_benchmarks = _update_benchmarks(args.directory)
-    metrics_bucket = cluster.bucket("metrics")
-    benchmarks_bucket = cluster.bucket("benchmarks")
     print("Uploading...")
     for mark in alive_it(updated_benchmarks):
-        benchmarks_bucket.upsert(str(uuid.uuid4()), mark)
+        with requests.post(f"http://{args.server}/api/v1/benchmarks", json=mark) as r:
+            r.raise_for_status()
+
         if mark["metric"] not in seen_metrics:
             seen_metrics.add(mark["metric"])
             metric = next((m for m in all_metrics if m["id"] == mark["metric"]), None)
             if metric is not None:
-                metrics_bucket.upsert(mark["metric"], metric)
+                with requests.post(f"http://{args.server}/api/v1/metrics", json=metric) as r:
+                    r.raise_for_status()

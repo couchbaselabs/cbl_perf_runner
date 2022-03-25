@@ -1,4 +1,3 @@
-couchbase
 GitPython
 requests
 alive-progress
