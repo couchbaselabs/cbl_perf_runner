@@ -139,7 +139,8 @@ else:
     subprocess.run('make -j8 C4Tests', shell=True)
 
 showfast_dir = Path('../showfast').absolute()
-showfast_dir.mkdir(exist_ok=True)
+showfast_dir.unlink(missing_ok=True)
+showfast_dir.mkdir()
 os.environ['CBL_SHOWFAST_DIR'] = str(showfast_dir)
 os.chdir('C/tests')
 
