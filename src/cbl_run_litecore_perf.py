@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import shutil
 import subprocess
 import requests
 
@@ -139,7 +140,7 @@ else:
     subprocess.run('make -j8 C4Tests', shell=True)
 
 showfast_dir = Path('../showfast').absolute()
-showfast_dir.unlink(missing_ok=True)
+shutil.rmtree(showfast_dir, ignore_errors=True)
 showfast_dir.mkdir()
 os.environ['CBL_SHOWFAST_DIR'] = str(showfast_dir)
 os.chdir('C/tests')
