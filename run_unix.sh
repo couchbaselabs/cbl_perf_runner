@@ -4,7 +4,7 @@ pushd `dirname "$0"`
 
 do_upload=1
 if [ -z $SHOWFAST_SERVER ]; then
-   echo "Required environment variable CB_SERVER not set, upload will be skipped!"
+   echo "Required environment variable SHOWFAST_SERVER not set, upload will be skipped!"
    do_upload=0
 fi
 

@@ -2,7 +2,7 @@ Push-Location $PSScriptRoot
 $do_upload = $true
 
 if(-Not $env:SHOWFAST_SERVER) {
-    Write-Warning "Required environment variable CB_SERVER not set, upload will be skipped!"
+    Write-Warning "Required environment variable SHOWFAST_SERVER not set, upload will be skipped!"
     $do_upload = $false
 }
 
