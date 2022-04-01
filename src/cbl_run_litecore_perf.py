@@ -113,7 +113,8 @@ core_repo.remote().pull(progress=CloneProgress())
 print("Updating submodules...")
 core_repo.submodule_update(progress=SubmoduleProgress())
 
-sys.path.append(os.path.join(os.getcwd(), "cbl", "scripts"))
+sys.path.append(os.path.join(os.getcwd(), "cbl", "scripts")) # For older versions of the script
+sys.path.append(os.path.join(os.getcwd(), "cbl", "tools"))
 from fetch_litecore_version import download_litecore, resolve_platform_path, import_platform_extensions ,get_cbl_build
 full_path = resolve_platform_path(os.path.join(os.getcwd(), "cbl", "scripts"))
 import_platform_extensions(full_path)
