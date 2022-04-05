@@ -49,11 +49,17 @@ sys.path.append(os.path.join(os.getcwd(), "cbl", "tools"))
 from fetch_litecore_version import download_litecore, resolve_platform_path, import_platform_extensions ,get_cbl_build
 full_path = resolve_platform_path(os.path.join(os.getcwd(), "cbl", "tools"))
 import_platform_extensions(full_path)
-Path('downloaded').mkdir(exist_ok=True)
+shutil.rmtree(Path('downloaded'), ignore_errors=True)
+Path('downloaded').mkdir()
 os.chdir('downloaded')
 
 if sys.platform == "win32":
     download_litecore(["windows-win64"], debug=False, dry=False, build=None, repo=Path('../cbl').resolve(), ee=True, output_path=os.getcwd())
+
+    # TEMPORARY HACK: Flatten directory for Windows artifacts
+    shutil.copyfile(Path('windows', 'lib', 'LiteCore.lib'), Path('windows', 'LiteCore.lib'))
+    shutil.copyfile(Path('windows', 'bin', 'LiteCore.dll'), Path('windows', 'LiteCore.dll'))
+    shutil.copyfile(Path('windows', 'bin', 'LiteCore.pdb'), Path('windows', 'LiteCore.pdb'))
     Path('../build').mkdir(exist_ok=True)
     os.chdir('../build')
     subprocess.run(f'cmake -DBUILD_ENTERPRISE=ON -DLITECORE_PREBUILT_LIB="{Path(os.getcwd()).joinpath("..", "downloaded", "windows", "LiteCore.lib").resolve()}" -A x64 ../cbl', shell=True)
