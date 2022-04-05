@@ -4,7 +4,6 @@
 from argparse import ArgumentParser
 from pathlib import Path
 from datetime import datetime
-from alive_progress import alive_it
 
 import json
 import os
@@ -72,7 +71,7 @@ if __name__ == "__main__":
     print("Generating showfast data...")
     updated_benchmarks = _update_benchmarks(args.directory)
     print("Uploading...")
-    for mark in alive_it(updated_benchmarks):
+    for mark in updated_benchmarks:
         with requests.post(f"http://{args.server}/api/v1/benchmarks", json=mark) as r:
             r.raise_for_status()
 
