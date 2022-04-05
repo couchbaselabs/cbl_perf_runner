@@ -4,79 +4,12 @@ import os
 import shutil
 import subprocess
 import requests
+import sys
 
 from pathlib import Path
-import sys
-from typing import Union
-import git
 from git import Repo
 from alive_progress import alive_bar
 from gzip import GzipFile
-
-class CloneProgress(git.RemoteProgress):
-    OP_CODES = [
-        "BEGIN",
-        "CHECKING_OUT",
-        "COMPRESSING",
-        "COUNTING",
-        "END",
-        "FINDING_SOURCES",
-        "RECEIVING",
-        "RESOLVING",
-        "WRITING",
-    ]
-    OP_CODE_MAP = {
-        getattr(git.RemoteProgress, _op_code): _op_code for _op_code in OP_CODES
-    }
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.alive_bar_instance = None
-
-    @classmethod
-    def get_curr_op(cls, op_code: int) -> str:
-        """Get OP name from OP code."""
-        # Remove BEGIN- and END-flag and get op name
-        op_code_masked = op_code & cls.OP_MASK
-        return cls.OP_CODE_MAP.get(op_code_masked, "?").title()
-
-    def update(
-        self,
-        op_code: int,
-        cur_count: Union[str, float],
-        max_count: Union[str, float] = None,
-        message: Union[str, None] = "",
-    ) -> None:
-        # Start new bar on each BEGIN-flag
-        if op_code & self.BEGIN:
-            self.curr_op = self.get_curr_op(op_code)
-            self._dispatch_bar(title=self.curr_op)
-
-        self.bar(cur_count / max_count)
-        self.bar.text(message)
-
-        # End progress monitoring on each END-flag
-        if op_code & git.RemoteProgress.END:
-            self._destroy_bar()
-
-    def _dispatch_bar(self, title: Union[str, None] = "") -> None:
-        """Create a new progress bar"""
-        self.alive_bar_instance = alive_bar(manual=True, title=title)
-        self.bar = self.alive_bar_instance.__enter__()
-
-    def _destroy_bar(self) -> None:
-        """Destroy an existing progress bar"""
-        self.alive_bar_instance.__exit__(None, None, None)
-
-class SubmoduleProgress(git.RootUpdateProgress):
-    def update(
-        self,
-        op_code: int,
-        cur_count: Union[str, float],
-        max_count: Union[str, float] = None,
-        message: Union[str, None] = "",
-    ) -> None:
-        print(message)
 
 def download_file_if_needed(filename: str, url: str) -> None:
     if(os.path.isfile(filename.replace(".gz", ""))):
@@ -101,22 +34,20 @@ def download_file_if_needed(filename: str, url: str) -> None:
         os.unlink(filename)
 
 
-
 if not Path("cbl").exists():
     print("Cloning couchbase-lite-core repo...")
-    Repo.clone_from("https://github.com/couchbase/couchbase-lite-core", "cbl", multi_options=["--branch=staging/master"], progress=CloneProgress())
+    Repo.clone_from("https://github.com/couchbase/couchbase-lite-core", "cbl", multi_options=["--branch=staging/master", "--recursive"])
 
 core_repo = Repo("cbl")
 core_repo.git.checkout("staging/master")
 print("Pulling from staging/master...")
-core_repo.remote().pull(progress=CloneProgress())
+core_repo.remote().pull()
 print("Updating submodules...")
-core_repo.submodule_update(progress=SubmoduleProgress())
+core_repo.submodule_update()
 
-sys.path.append(os.path.join(os.getcwd(), "cbl", "scripts")) # For older versions of the script
 sys.path.append(os.path.join(os.getcwd(), "cbl", "tools"))
 from fetch_litecore_version import download_litecore, resolve_platform_path, import_platform_extensions ,get_cbl_build
-full_path = resolve_platform_path(os.path.join(os.getcwd(), "cbl", "scripts"))
+full_path = resolve_platform_path(os.path.join(os.getcwd(), "cbl", "tools"))
 import_platform_extensions(full_path)
 Path('downloaded').mkdir(exist_ok=True)
 os.chdir('downloaded')
