@@ -8,7 +8,6 @@ import sys
 
 from pathlib import Path
 from git import Repo
-from alive_progress import alive_bar
 from gzip import GzipFile
 
 def download_file_if_needed(filename: str, url: str) -> None:
@@ -17,12 +16,9 @@ def download_file_if_needed(filename: str, url: str) -> None:
 
     print(f"Downloading {url} to {filename}...")
     with requests.get(url) as r:
-        with alive_bar() as bar:
-            bar.text("Progress")
-            with open(filename, "wb") as fout:
-                for chunk in r.iter_content(32768):
-                    fout.write(chunk)
-                    bar(len(chunk))
+        with open(filename, "wb") as fout:
+            for chunk in r.iter_content(32768):
+                fout.write(chunk)
 
     if filename.endswith("gz"):
         print(f"Extracting {filename}...")
