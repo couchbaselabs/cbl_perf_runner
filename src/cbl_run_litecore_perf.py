@@ -83,9 +83,9 @@ showfast_dir.mkdir()
 os.environ['CBL_SHOWFAST_DIR'] = str(showfast_dir)
 os.chdir('C/tests')
 
-download_file_if_needed('C/tests/data/geoblocks.json', 'https://raw.githubusercontent.com/arangodb/example-datasets/master/IPRanges/geoblocks.json')
-download_file_if_needed('C/tests/data/names_300000.json', 'https://github.com/arangodb/example-datasets/raw/master/RandomUsers/names_300000.json')
-download_file_if_needed('C/tests/data/en-wikipedia-articles-1000-1.json.gz', "https://raw.githubusercontent.com/diegoceccarelli/json-wikipedia/master/src/test/resources/misc/en-wikipedia-articles-1000-1.json.gz")
+download_file_if_needed(str(Path('C/tests/data/geoblocks.json')), 'https://raw.githubusercontent.com/arangodb/example-datasets/master/IPRanges/geoblocks.json')
+download_file_if_needed(str(Path('C/tests/data/names_300000.json')), 'https://github.com/arangodb/example-datasets/raw/master/RandomUsers/names_300000.json')
+download_file_if_needed(str(Path('C/tests/data/en-wikipedia-articles-1000-1.json.gz')), "https://raw.githubusercontent.com/diegoceccarelli/json-wikipedia/master/src/test/resources/misc/en-wikipedia-articles-1000-1.json.gz")
 
 if sys.platform == "win32":
     os.chdir("MinSizeRel")
