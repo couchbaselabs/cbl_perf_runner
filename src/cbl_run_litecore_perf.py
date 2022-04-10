@@ -7,8 +7,19 @@ import requests
 import sys
 
 from pathlib import Path
-from git import Repo
+from git import Repo, RootUpdateProgress
 from gzip import GzipFile
+from typing import Union
+
+class SubmoduleProgress(RootUpdateProgress):
+    def update(
+        self,
+        op_code: int,
+        cur_count: Union[str, float],
+        max_count: Union[str, float] = None,
+        message: Union[str, None] = "",
+    ) -> None:
+        print(message)
 
 def download_file_if_needed(filename: str, url: str) -> None:
     if(os.path.isfile(filename.replace(".gz", ""))):
@@ -39,7 +50,7 @@ core_repo.git.checkout("staging/master")
 print("Pulling from staging/master...")
 core_repo.remote().pull()
 print("Updating submodules...")
-core_repo.submodule_update()
+core_repo.submodule_update(progress=SubmoduleProgress(), keep_going=True, force_reset=True)
 
 sys.path.append(os.path.join(os.getcwd(), "cbl", "tools"))
 from fetch_litecore_version import download_litecore, resolve_platform_path, import_platform_extensions ,get_cbl_build
